@@ -40,6 +40,15 @@ const answers: UserType = await inquirer.prompt([
         when(answers) {
             return answers.transaction === 'Fast Cash'
         }
+    },
+    {
+        type: 'number',
+        name: 'amount',
+        message: 'Enter Your Amount',
+        when(answers) {
+            return answers.transaction === 'Withdraw'
+        }
+
     }
 ])
 

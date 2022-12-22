@@ -24,6 +24,23 @@ const answers = await inquirer.prompt([
         when(answers) {
             return answers.cardType;
         }
+    },
+    {
+        type: 'list',
+        name: 'paymentMethod',
+        choices: [1000, 2000, 5000],
+        message: 'Select Your Amount :',
+        when(answers) {
+            return answers.transaction === 'Fast Cash';
+        }
+    },
+    {
+        type: 'number',
+        name: 'amount',
+        message: 'Enter Your Amount',
+        when(answers) {
+            return answers.transaction === 'Withdraw';
+        }
     }
 ]);
 console.log('Answers :', answers);
